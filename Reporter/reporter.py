@@ -6,6 +6,7 @@
 # data from the collector and displays it for the user in meaningful 
 # way
 import web
+import config
 
 # Map out the URLs
 urls = (
@@ -35,7 +36,10 @@ class Index:
 class Report:
     ''' Report URL to receive POST calls full with data '''
     def POST(self, api_key):
-        
+        if api_key in config.KEYS:
+            print web.data()
+        else:
+            return web.internalerror('The server says: No soup for you!')
 
 def notfound():
     ''' Create the not found page '''
