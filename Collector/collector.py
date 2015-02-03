@@ -58,5 +58,5 @@ class Collector():
 
 if __name__ == "__main__":
     collector = Collector(config.address)
-    print collector.getHumidity
+    print collector.getHumidity()
 

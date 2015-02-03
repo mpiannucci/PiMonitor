@@ -1,0 +1,5 @@
+# Web.py
+web/
+
+# Cached HTML files
+*.html~

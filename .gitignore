@@ -55,3 +55,7 @@ target/
 
 # OSX cache
 *.DS_Store
+
+# Project Files
+*.sublime-workspace
+.project
