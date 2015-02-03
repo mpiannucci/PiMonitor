@@ -1,0 +1,49 @@
+/************************************************************
+ pimonitor.css -- PiMonitor style definitions
+ ***********************************************************/
+
+/**
+ * Need to set padding for the body so content flows beneath the navbar
+ */
+body {
+    padding-top: 60px;
+}
+
+/**
+ * Custom navbar theming
+ */
+.navbar {
+  background-color: #47A3FF; /* background color will be black for all browsers */
+  background-image: none;
+  background-repeat: no-repeat;
+  border: #47A3FF;
+  filter: none;
+  padding-bottom: 0;
+}
+
+.navbar .navbar-brand {
+    color: #FFFFFF;
+}
+
+.navbar .navbar-brand:hover {
+    color: #000000;
+}
+
+.navbar .nav > li > a {
+    color: #FFFFFF;
+}
+
+.navbar .nav > li > a:hover {
+    color: #000000;
+}
+
+.navbar .nav > li > a:active {
+    color: #000000;
+}
+
+/**
+ * Main Footer
+ */
+#mainFooter {
+    padding-top: 15px;
+}
