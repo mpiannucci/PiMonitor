@@ -10,6 +10,7 @@ import web
 # Map out the URLs
 urls = (
     '/', 'Index',
+    '/report/(.+)', 'Report'
 )
 
 # Set the debugging messages
@@ -30,6 +31,11 @@ class Index:
     '''Main index page'''
     def GET(self):
         return render.index()
+
+class Report:
+    ''' Report URL to receive POST calls full with data '''
+    def POST(self, api_key):
+        
 
 def notfound():
     ''' Create the not found page '''
