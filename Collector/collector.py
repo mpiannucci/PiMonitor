@@ -6,8 +6,12 @@
 # the data for the reporter. Because this is a low level interface with
 # the GPIO pins, root access is REQUIRED. 
 import sys
+import json
+import requests
+import datetime
 import Adafruit_DHT
 import config
+
 
 class Collector():
 
@@ -55,6 +59,21 @@ class Collector():
         @return The percent humidity
         '''
         return self.humidity
+
+    def sendReport(self):
+        ''' Send the data off to the reporter '''
+        rawData = {
+            "date": str(datetime.datetime.now()),
+            "temp": self.getTemperatureF(),
+            "humidity": self.getHumidity()
+        }
+        packedData = json.dumps(rawData)
+        
+        try:
+            resp = requests.post(self.api_url, data=packedData, headers={"Accept":"*/*", "Content-Type": "application/json"})
+            return resp.json()
+        except Exception as e:
+                print e
 
 if __name__ == "__main__":
     collector = Collector(config.ADDRESS)
