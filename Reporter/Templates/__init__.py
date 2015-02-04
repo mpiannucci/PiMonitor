@@ -10,7 +10,7 @@ def base (page):
     extend_([u'<html>\n'])
     extend_([u'<head>\n'])
     extend_([u'    <meta name="viewport" content="width=device-width, initial-scale=1">\n'])
-    extend_([u'    <title>MapGetter</title>\n'])
+    extend_([u'    <title>PiMonitor</title>\n'])
     extend_([u'    <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico" />\n'])
     extend_([u'    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">\n'])
     extend_([u'    <link rel="stylesheet" type="text/css" href="/static/pimonitor.css" />\n'])
@@ -66,7 +66,7 @@ def base (page):
     extend_([u'        </div>\n'])
     extend_([u'        <div class="row">\n'])
     extend_([u'            <div class="col-sm-12 text-center" id="mainfooter">\n'])
-    extend_([u'                <p>Copyright 2014, Matthew Iannucci</p>\n'])
+    extend_([u'                <p>Copyright 2015, Matthew Iannucci</p>\n'])
     extend_([u'            </div>\n'])
     extend_([u'        </div>\n'])
     extend_([u'    </div>\n'])
@@ -83,7 +83,7 @@ def index():
     __lineoffset__ = -5
     loop = ForLoop()
     self = TemplateResult(); extend_ = self.extend
-    extend_([u'To be written...\n'])
+    extend_([u'To Be Written...\n'])
 
     return self
 

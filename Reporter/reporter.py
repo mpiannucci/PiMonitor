@@ -38,6 +38,7 @@ class Report:
     def POST(self, api_key):
         if api_key in config.KEYS:
             print web.data()
+            return web.data()
         else:
             return web.internalerror('The server says: No soup for you!')
 
