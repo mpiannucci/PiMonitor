@@ -9,6 +9,7 @@ import web
 import json
 import model
 import config
+from google.appengine.api import users
 
 # Map out the URLs
 urls = (
@@ -36,7 +37,11 @@ app = web.application(urls, globals())
 class Index:
     '''Main index page'''
     def GET(self):
-        return render.index()
+        user = users.get_current_user()
+        if user and users.is_current_user_admin(): 
+            return render.index()
+        else:
+            raise web.redirect(users.create_login_url('/'))
 
 class Report:
     ''' Report URL to receive POST calls full with data '''
