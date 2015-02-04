@@ -6,6 +6,8 @@
 # data from the collector and displays it for the user in meaningful 
 # way
 import web
+import json
+import model
 import config
 
 # Map out the URLs
@@ -19,6 +21,9 @@ web.config.debug = True
 
 # Define the globals
 t_globals = {
+    'datestr': web.datestr,
+    'getAllReports': model.getAllReports,
+    'len': len
 }
 render = web.template.render('Templates', base='base', globals=t_globals)
 
@@ -37,7 +42,8 @@ class Report:
     ''' Report URL to receive POST calls full with data '''
     def POST(self, api_key):
         if api_key in config.KEYS:
-            print web.data()
+            newReport = json.loads(web.data())
+            model.newReport(newReport["temp"], newReport["humidity"])
             return web.data()
         else:
             return web.internalerror('The server says: No soup for you!')

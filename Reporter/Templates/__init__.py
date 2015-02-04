@@ -83,7 +83,13 @@ def index():
     __lineoffset__ = -5
     loop = ForLoop()
     self = TemplateResult(); extend_ = self.extend
-    extend_([u'To Be Written...\n'])
+    posts =  getAllReports()
+    extend_([u'\n'])
+    for post in loop.setup(posts):
+        extend_([escape_(post.date, True), u'\n'])
+        extend_([escape_(post.temperature, True), u'\n'])
+        extend_([escape_(post.humidity, True), u'\n'])
+        extend_([u'<hr>\n'])
 
     return self
 
